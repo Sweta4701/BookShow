@@ -7,5 +7,6 @@
     <color name="Snow_white">#F2F0EB</color>
     <color name="Pastel_teal">#63B7B7</color>
     <color name="Teal_blue">#367588</color>
-    <color name="Matte_teal">#3A7575</color>
+    <color name="gray">#4B4C4C</color>
+    <color name="green">#02EA0C</color>
 </resources>

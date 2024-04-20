@@ -1,5 +1,6 @@
 package com.example.bookshow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,31 +16,38 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    EditText username, password;
-    Button loginButton;
+    private EditText edtusername, edtpassword;
+    private Button btnlogin;
 
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
-        loginButton = findViewById(R.id.loginButton);
+        dbHelper = new DatabaseHelper(this);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        edtusername = findViewById(R.id.username);
+        edtpassword = findViewById(R.id.password);
+        btnlogin = findViewById(R.id.btnlogin);
+
+        btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (username.getText().toString().equals("user") && password.getText().toString().equals("1234")){
+                boolean isLoggedId = dbHelper.checkUser(edtusername.getText().toString(), edtpassword.getText().toString());
+                if (isLoggedId) {
                     Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+
+                    Intent iNext = new Intent(MainActivity.this, MoviesListActivity.class);
+                    startActivity(iNext);
                 } else {
                     Log.d(TAG, "onClick: else");
                     Toast.makeText(MainActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();

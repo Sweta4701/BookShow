@@ -9,7 +9,7 @@
     android:background="@drawable/bck"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Signup">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -27,14 +27,15 @@
             android:padding="24dp">
 
             <TextView
-                android:id="@+id/loginText"
+                android:id="@+id/signupText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="Signup"
                 android:textAlignment="center"
                 android:textColor="@color/golden"
                 android:textSize="36sp"
                 android:textStyle="bold" />
+
 
             <EditText
                 android:id="@+id/username"
@@ -63,13 +64,36 @@
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
 
+            <EditText
+                android:id="@+id/repassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="8dp"
+                android:hint="Retype Password"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background" />
+
             <Button
-                android:id="@+id/btnlogin"
+                android:id="@+id/btnsignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
                 android:backgroundTint="@color/golden"
-                android:text="LOGIN"
+                android:text="SIGNUP"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btnlogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/golden"
+                android:text="Go To Login"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
